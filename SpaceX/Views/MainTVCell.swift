@@ -8,6 +8,8 @@
 import UIKit
 import SDWebImage
 
+
+
 class MainTVCell: UITableViewCell {
 
     static let identifier = "MainTVCell"

@@ -21,6 +21,7 @@
 		2EBA2EDA282BDBE400F6F731 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2EBA2ED9282BDBE400F6F731 /* SDWebImage */; };
 		2EBA2EDC282BDBE400F6F731 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2EBA2EDB282BDBE400F6F731 /* SDWebImageMapKit */; };
 		2EBA2EDE282BFC1F00F6F731 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EDD282BFC1F00F6F731 /* DetailsViewController.swift */; };
+		2EBA2EE0282C069D00F6F731 /* DescriptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EDF282C069D00F6F731 /* DescriptionViewModel.swift */; };
 		E9CFE4E2BB0EA8F6F96B38F7 /* Pods_SpaceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85257DFAFB52877D3AA90841 /* Pods_SpaceX.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		2EBA2ED3282BB75E00F6F731 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		2EBA2EDD282BFC1F00F6F731 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		2EBA2EDF282C069D00F6F731 /* DescriptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewModel.swift; sourceTree = "<group>"; };
 		43E5FC0BD0EF896D00A18B88 /* Pods-SpaceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.release.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.release.xcconfig"; sourceTree = "<group>"; };
 		563B45A78B5CDCB79B883079 /* Pods-SpaceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.debug.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.debug.xcconfig"; sourceTree = "<group>"; };
 		85257DFAFB52877D3AA90841 /* Pods_SpaceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */,
+				2EBA2EDF282C069D00F6F731 /* DescriptionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2EBA2ED4282BB75E00F6F731 /* APICaller.swift in Sources */,
 				2EBA2EB6282BA22F00F6F731 /* MainTVCell.swift in Sources */,
 				2EBA2ED1282BB50700F6F731 /* Launch.swift in Sources */,
+				2EBA2EE0282C069D00F6F731 /* DescriptionViewModel.swift in Sources */,
 				2EBA2EA1282B9F4B00F6F731 /* SceneDelegate.swift in Sources */,
 				2EBA2ED7282BBDCA00F6F731 /* LaunchViewModel.swift in Sources */,
 			);

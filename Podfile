@@ -10,5 +10,5 @@ target 'SpaceX' do
 	pod 'RxSwift', '6.5.0'
 	pod 'RxCocoa', '6.5.0'
 	pod 'RxGesture', '4.0.3'
-
+	pod 'YouTubePlayer'
 end

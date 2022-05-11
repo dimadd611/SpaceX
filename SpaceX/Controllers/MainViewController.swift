@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+
 class MainViewController: UIViewController {
     
     private var launches: [Launch] = [Launch]()
@@ -37,6 +38,11 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.black
         ]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill"), style: .plain, target: self, action: #selector(goDescrip))
+    }
+    
+    @objc func goDescrip(){
+        self.navigationController?.pushViewController(DetailsViewController(), animated: true)
     }
     
     func configureLayout(){
