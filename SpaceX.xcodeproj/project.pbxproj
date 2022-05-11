@@ -9,10 +9,15 @@
 /* Begin PBXBuildFile section */
 		2EBA2E9F282B9F4B00F6F731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2E9E282B9F4B00F6F731 /* AppDelegate.swift */; };
 		2EBA2EA1282B9F4B00F6F731 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EA0282B9F4B00F6F731 /* SceneDelegate.swift */; };
-		2EBA2EA3282B9F4B00F6F731 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EA2282B9F4B00F6F731 /* ViewController.swift */; };
+		2EBA2EA3282B9F4B00F6F731 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EA2282B9F4B00F6F731 /* MainViewController.swift */; };
 		2EBA2EA6282B9F4B00F6F731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA2EA4282B9F4B00F6F731 /* Main.storyboard */; };
 		2EBA2EA8282B9F4C00F6F731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA2EA7282B9F4C00F6F731 /* Assets.xcassets */; };
 		2EBA2EAB282B9F4C00F6F731 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA2EA9282B9F4C00F6F731 /* LaunchScreen.storyboard */; };
+		2EBA2EB6282BA22F00F6F731 /* MainTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EB5282BA22F00F6F731 /* MainTVCell.swift */; };
+		2EBA2EB9282BA36F00F6F731 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EB8282BA36F00F6F731 /* UIView+Extensions.swift */; };
+		2EBA2ED1282BB50700F6F731 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2ED0282BB50700F6F731 /* Launch.swift */; };
+		2EBA2ED4282BB75E00F6F731 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2ED3282BB75E00F6F731 /* APICaller.swift */; };
+		2EBA2ED7282BBDCA00F6F731 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */; };
 		E9CFE4E2BB0EA8F6F96B38F7 /* Pods_SpaceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85257DFAFB52877D3AA90841 /* Pods_SpaceX.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,11 +25,16 @@
 		2EBA2E9B282B9F4B00F6F731 /* SpaceX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EBA2E9E282B9F4B00F6F731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EBA2EA0282B9F4B00F6F731 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2EBA2EA2282B9F4B00F6F731 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2EBA2EA2282B9F4B00F6F731 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2EBA2EA5282B9F4B00F6F731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EBA2EA7282B9F4C00F6F731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EBA2EAA282B9F4C00F6F731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EBA2EAC282B9F4C00F6F731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EBA2EB5282BA22F00F6F731 /* MainTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTVCell.swift; sourceTree = "<group>"; };
+		2EBA2EB8282BA36F00F6F731 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		2EBA2ED0282BB50700F6F731 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
+		2EBA2ED3282BB75E00F6F731 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		43E5FC0BD0EF896D00A18B88 /* Pods-SpaceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.release.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.release.xcconfig"; sourceTree = "<group>"; };
 		563B45A78B5CDCB79B883079 /* Pods-SpaceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.debug.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.debug.xcconfig"; sourceTree = "<group>"; };
 		85257DFAFB52877D3AA90841 /* Pods_SpaceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,15 +73,68 @@
 		2EBA2E9D282B9F4B00F6F731 /* SpaceX */ = {
 			isa = PBXGroup;
 			children = (
+				2EBA2ED5282BBDB800F6F731 /* ViewModel */,
+				2EBA2ED2282BB74E00F6F731 /* Managers */,
+				2EBA2EB3282BA0A100F6F731 /* Models */,
+				2EBA2EB4282BA0B700F6F731 /* Views */,
+				2EBA2EB2282BA06B00F6F731 /* Controllers */,
+				2EBA2EB7282BA32800F6F731 /* Extension */,
 				2EBA2E9E282B9F4B00F6F731 /* AppDelegate.swift */,
 				2EBA2EA0282B9F4B00F6F731 /* SceneDelegate.swift */,
-				2EBA2EA2282B9F4B00F6F731 /* ViewController.swift */,
 				2EBA2EA4282B9F4B00F6F731 /* Main.storyboard */,
 				2EBA2EA7282B9F4C00F6F731 /* Assets.xcassets */,
 				2EBA2EA9282B9F4C00F6F731 /* LaunchScreen.storyboard */,
 				2EBA2EAC282B9F4C00F6F731 /* Info.plist */,
 			);
 			path = SpaceX;
+			sourceTree = "<group>";
+		};
+		2EBA2EB2282BA06B00F6F731 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA2EA2282B9F4B00F6F731 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2EBA2EB3282BA0A100F6F731 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA2ED0282BB50700F6F731 /* Launch.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2EBA2EB4282BA0B700F6F731 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA2EB5282BA22F00F6F731 /* MainTVCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2EBA2EB7282BA32800F6F731 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA2EB8282BA36F00F6F731 /* UIView+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2EBA2ED2282BB74E00F6F731 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA2ED3282BB75E00F6F731 /* APICaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		2EBA2ED5282BBDB800F6F731 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9B83785F86516ABCDB23B68E /* Frameworks */ = {
@@ -88,7 +151,6 @@
 				563B45A78B5CDCB79B883079 /* Pods-SpaceX.debug.xcconfig */,
 				43E5FC0BD0EF896D00A18B88 /* Pods-SpaceX.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,9 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EBA2EA3282B9F4B00F6F731 /* ViewController.swift in Sources */,
+				2EBA2EA3282B9F4B00F6F731 /* MainViewController.swift in Sources */,
 				2EBA2E9F282B9F4B00F6F731 /* AppDelegate.swift in Sources */,
+				2EBA2EB9282BA36F00F6F731 /* UIView+Extensions.swift in Sources */,
+				2EBA2ED4282BB75E00F6F731 /* APICaller.swift in Sources */,
+				2EBA2EB6282BA22F00F6F731 /* MainTVCell.swift in Sources */,
+				2EBA2ED1282BB50700F6F731 /* Launch.swift in Sources */,
 				2EBA2EA1282B9F4B00F6F731 /* SceneDelegate.swift in Sources */,
+				2EBA2ED7282BBDCA00F6F731 /* LaunchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
