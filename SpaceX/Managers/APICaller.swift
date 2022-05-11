@@ -32,7 +32,7 @@ class APICaller {
             }
             do{
                 let results = try JSONDecoder().decode([Launch].self, from: data)
-                print(results)
+//                print(results)
                 completion(.success(results))
             }catch{
                 print(error)//.localizedDescription)

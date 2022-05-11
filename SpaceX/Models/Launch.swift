@@ -14,6 +14,7 @@ import Foundation
 
 
 struct Launch: Codable{
+    let links: Links
 //       let staticFireDateUTC: String
 //       let staticFireDateUnix: Int
 //       let tdb, net: Bool
@@ -25,16 +26,47 @@ struct Launch: Codable{
 //       let launchpad: String
 //       let autoUpdate: Bool
 //       let flightNumber: Int
+    
        let name: String
-       let dateUTC: String
-//       let dateUnix: Int
+       let dateUnix: Int
 //       let dateLocal: Date
 //       let datePrecision: String
 //       let upcoming: Bool
     
     enum CodingKeys: String, CodingKey {
+            case links = "links"
             case name
-            case dateUTC = "date_utc"
+            case dateUnix = "date_unix"
+        
+        
+        
         }
     
+}
+
+struct Links: Codable {
+    let patch: Patch
+    let flickr: Flickr
+    enum CodingKeys: String, CodingKey{
+        case patch = "patch"
+        case flickr = "flickr"
+    }
+}
+
+
+struct Patch: Codable {
+    let small: String?
+    
+    enum CodingKeys: String, CodingKey{
+        case small = "small"
+    }
+}
+
+
+struct Flickr: Codable{
+    let original: [String]?
+    
+    enum CodingKeys: String, CodingKey{
+        case original = "original"
+    }
 }

@@ -18,6 +18,9 @@
 		2EBA2ED1282BB50700F6F731 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2ED0282BB50700F6F731 /* Launch.swift */; };
 		2EBA2ED4282BB75E00F6F731 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2ED3282BB75E00F6F731 /* APICaller.swift */; };
 		2EBA2ED7282BBDCA00F6F731 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */; };
+		2EBA2EDA282BDBE400F6F731 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2EBA2ED9282BDBE400F6F731 /* SDWebImage */; };
+		2EBA2EDC282BDBE400F6F731 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2EBA2EDB282BDBE400F6F731 /* SDWebImageMapKit */; };
+		2EBA2EDE282BFC1F00F6F731 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA2EDD282BFC1F00F6F731 /* DetailsViewController.swift */; };
 		E9CFE4E2BB0EA8F6F96B38F7 /* Pods_SpaceX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85257DFAFB52877D3AA90841 /* Pods_SpaceX.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,7 @@
 		2EBA2ED0282BB50700F6F731 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		2EBA2ED3282BB75E00F6F731 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		2EBA2ED6282BBDCA00F6F731 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		2EBA2EDD282BFC1F00F6F731 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		43E5FC0BD0EF896D00A18B88 /* Pods-SpaceX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.release.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.release.xcconfig"; sourceTree = "<group>"; };
 		563B45A78B5CDCB79B883079 /* Pods-SpaceX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpaceX.debug.xcconfig"; path = "Target Support Files/Pods-SpaceX/Pods-SpaceX.debug.xcconfig"; sourceTree = "<group>"; };
 		85257DFAFB52877D3AA90841 /* Pods_SpaceX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EBA2EDA282BDBE400F6F731 /* SDWebImage in Frameworks */,
+				2EBA2EDC282BDBE400F6F731 /* SDWebImageMapKit in Frameworks */,
 				E9CFE4E2BB0EA8F6F96B38F7 /* Pods_SpaceX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				2EBA2EA2282B9F4B00F6F731 /* MainViewController.swift */,
+				2EBA2EDD282BFC1F00F6F731 /* DetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -172,6 +179,10 @@
 			dependencies = (
 			);
 			name = SpaceX;
+			packageProductDependencies = (
+				2EBA2ED9282BDBE400F6F731 /* SDWebImage */,
+				2EBA2EDB282BDBE400F6F731 /* SDWebImageMapKit */,
+			);
 			productName = SpaceX;
 			productReference = 2EBA2E9B282B9F4B00F6F731 /* SpaceX.app */;
 			productType = "com.apple.product-type.application";
@@ -200,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 2EBA2E92282B9F4B00F6F731;
+			packageReferences = (
+				2EBA2ED8282BDBE400F6F731 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 2EBA2E9C282B9F4B00F6F731 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -271,6 +285,7 @@
 			files = (
 				2EBA2EA3282B9F4B00F6F731 /* MainViewController.swift in Sources */,
 				2EBA2E9F282B9F4B00F6F731 /* AppDelegate.swift in Sources */,
+				2EBA2EDE282BFC1F00F6F731 /* DetailsViewController.swift in Sources */,
 				2EBA2EB9282BA36F00F6F731 /* UIView+Extensions.swift in Sources */,
 				2EBA2ED4282BB75E00F6F731 /* APICaller.swift in Sources */,
 				2EBA2EB6282BA22F00F6F731 /* MainTVCell.swift in Sources */,
@@ -498,6 +513,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2EBA2ED8282BDBE400F6F731 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2EBA2ED9282BDBE400F6F731 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EBA2ED8282BDBE400F6F731 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		2EBA2EDB282BDBE400F6F731 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EBA2ED8282BDBE400F6F731 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2EBA2E93282B9F4B00F6F731 /* Project object */;
 }

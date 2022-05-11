@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     private lazy var mainTableView: UITableView = {
         let tb = UITableView()
         tb.register(MainTVCell.self, forCellReuseIdentifier: MainTVCell.identifier)
-        tb.backgroundColor = .white
+        tb.backgroundColor = UIColor(red: 33/255, green: 35/255, blue: 50/255, alpha: 1)
         return tb
     }()
 
@@ -25,14 +25,25 @@ class MainViewController: UIViewController {
         mainTableView.dataSource = self
         configureLayout()
         getLaunch()
-        view.backgroundColor = .red
+        configureNavBar()
+        view.backgroundColor = UIColor(red: 33/255, green: 35/255, blue: 50/255, alpha: 1)
+    }
+    
+    func configureNavBar(){
+        title = "SpaceX"
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barStyle = .default
+        self.navigationController?.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.black
+        ]
     }
     
     func configureLayout(){
         view.addSubviews(mainTableView)
         
         mainTableView.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(30)
+            $0.top.equalToSuperview()
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -41,7 +52,7 @@ class MainViewController: UIViewController {
         APICaller.shared.getLaunchInfo{ [weak self] result in
             switch result{
             case.success(let launces):
-                self?.launches = launces
+                self?.launches = launces.reversed()
                 DispatchQueue.main.async {
                     self?.mainTableView.reloadData()
                 }
@@ -50,6 +61,7 @@ class MainViewController: UIViewController {
             }
         }
     }
+
 
 
 }
@@ -67,7 +79,22 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         let launch = launches[indexPath.row]
-        cell.configure(with: LaunchViewModel(launchName: launch.name , launchDate: launch.dateUTC))
+        
+        let date = Date(timeIntervalSince1970: Double(launch.dateUnix))
+                let dateFormatter = DateFormatter()
+                dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+                dateFormatter.locale = NSLocale.current
+                dateFormatter.dateFormat = "MMMM d, yyyy"
+                let strDate = dateFormatter.string(from: date)
+
+        
+        
+        cell.configure(with: LaunchViewModel(launchName: launch.name , launchDate: strDate, launchPoster: (launch.links.flickr.original?.first ?? launch.links.patch.small) ?? "https://www.spacex.com/static/images/share.jpg"))
+        
+        
+        
+                
+        
         return cell
     }
     

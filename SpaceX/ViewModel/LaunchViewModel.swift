@@ -11,4 +11,5 @@ import Foundation
 struct LaunchViewModel {
     let launchName: String
     let launchDate: String
+    let launchPoster: String
 }
