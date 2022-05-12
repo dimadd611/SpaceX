@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import Network
+import SwiftPullToRefresh
 
 
 class MainViewController: UIViewController {
@@ -20,6 +22,10 @@ class MainViewController: UIViewController {
         return tb
     }()
 
+    override func viewDidAppear(_ animated: Bool) {
+        checkConnection()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.delegate = self
@@ -27,7 +33,13 @@ class MainViewController: UIViewController {
         configureLayout()
         getLaunch()
         configureNavBar()
+        refresh()
         view.backgroundColor = UIColor(red: 33/255, green: 35/255, blue: 50/255, alpha: 1)
+        
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+//            self.showAlert()
+//        }
     }
     
     func configureNavBar(){
@@ -38,12 +50,10 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.black
         ]
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill"), style: .plain, target: self, action: #selector(goDescrip))
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill"), style: .plain, target: self, action: #selector(goDescrip))
     }
     
-    @objc func goDescrip(){
-        self.navigationController?.pushViewController(DetailsViewController(), animated: true)
-    }
+    var connection: Bool = false
     
     func configureLayout(){
         view.addSubviews(mainTableView)
@@ -54,19 +64,89 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func getLaunch(){
+    
+    func refresh(){
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(reload), for: .valueChanged)
+        self.mainTableView.refreshControl = refresh
+    }
+    
+    @objc func reload(){
         APICaller.shared.getLaunchInfo{ [weak self] result in
             switch result{
             case.success(let launces):
+                
+                self?.launches = launces.reversed()
+                DispatchQueue.main.async {
+                    self?.mainTableView.reloadData()
+                    self?.mainTableView.refreshControl?.endRefreshing()
+
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                self?.launches = [Launch]()
+                self?.connection = true
+                DispatchQueue.main.async {
+                    self?.mainTableView.refreshControl?.endRefreshing()
+                }
+                
+                
+            }
+        }
+    }
+    
+    func checkConnection(){
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { path in
+           if path.status == .satisfied {
+              print("Connected")
+           } else {
+               DispatchQueue.main.async {
+                   self.showAlert()
+               }
+           }
+           print(path.isExpensive)
+        }
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+    }
+    
+   
+    
+ 
+    private func getLaunch(){
+        self.connection = false
+        APICaller.shared.getLaunchInfo{ [weak self] result in
+            switch result{
+            case.success(let launces):
+                
                 self?.launches = launces.reversed()
                 DispatchQueue.main.async {
                     self?.mainTableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                self?.connection = true
+                
             }
         }
     }
+    
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "Error", message: "Something went wrong", preferredStyle: .alert)
+        
+
+        
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) {[weak self] _ in
+            alert.dismiss(animated: true)
+        }
+        
+        alert.addAction(okAction)
+        
+        present(alert, animated: true)
+    }
+    
 
 
 
@@ -108,5 +188,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return 200
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let launch = launches[indexPath.row]
+        self.navigationController?.pushViewController(DetailsViewController(name: launch.name, videoID: launch.links.youtubeID ?? "", date: launch.dateUnix, details: launch.details ?? "No Details", rocketID: launch.rocket, wikipedia: launch.links.wiki ?? ""), animated: true)
+
+
+    }
+    
 }
+
+
+
 

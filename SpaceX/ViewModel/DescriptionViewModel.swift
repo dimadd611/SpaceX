@@ -9,6 +9,6 @@ import Foundation
 
 
 struct DescriptionViewModel{
-    let titleName: String
+    let title: String
     let video: String
 }

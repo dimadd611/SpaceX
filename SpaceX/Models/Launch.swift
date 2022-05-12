@@ -19,14 +19,12 @@ struct Launch: Codable{
 //       let staticFireDateUnix: Int
 //       let tdb, net: Bool
 //       let window: Int
-//       let rocket: String
+       let rocket: String
 //       let success: Bool
-//       let details: String
-//       let capsules, payloads: [String]
+       let details: String?
 //       let launchpad: String
 //       let autoUpdate: Bool
 //       let flightNumber: Int
-    
        let name: String
        let dateUnix: Int
 //       let dateLocal: Date
@@ -37,6 +35,9 @@ struct Launch: Codable{
             case links = "links"
             case name
             case dateUnix = "date_unix"
+            case rocket = "rocket"
+            case details = "details"
+            
         
         
         
@@ -47,9 +48,13 @@ struct Launch: Codable{
 struct Links: Codable {
     let patch: Patch
     let flickr: Flickr
+    let youtubeID: String?
+    let wiki: String?
     enum CodingKeys: String, CodingKey{
         case patch = "patch"
         case flickr = "flickr"
+        case youtubeID = "youtube_id"
+        case wiki = "wikipedia"
     }
 }
 

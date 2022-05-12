@@ -20,6 +20,9 @@ enum APIError: Error{
 class APICaller {
     static let shared = APICaller()
     
+
+    
+    
     
     
     func getLaunchInfo(completion: @escaping (Result<[Launch], Error>) -> Void){
@@ -28,7 +31,7 @@ class APICaller {
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
-                return
+                return completion(.failure(error as! Error))
             }
             do{
                 let results = try JSONDecoder().decode([Launch].self, from: data)

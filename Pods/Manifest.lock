@@ -9,14 +9,14 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.0.1)
-  - YouTubePlayer (0.7.2)
+  - SwiftPullToRefresh (3.1.1)
 
 DEPENDENCIES:
   - RxCocoa (= 6.5.0)
   - RxGesture (= 4.0.3)
   - RxSwift (= 6.5.0)
   - SnapKit
-  - YouTubePlayer
+  - SwiftPullToRefresh
 
 SPEC REPOS:
   trunk:
@@ -25,7 +25,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
-    - YouTubePlayer
+    - SwiftPullToRefresh
 
 SPEC CHECKSUMS:
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
@@ -33,8 +33,8 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
+  SwiftPullToRefresh: f61d67439c5b8d66420fe57193cab8c279398e7a
 
-PODFILE CHECKSUM: 7cb302e0e436c922765a5ef4cc8f380ba026e34e
+PODFILE CHECKSUM: 1346660b6b8862ab5d1de20ff49e6377b67119f9
 
 COCOAPODS: 1.11.2
