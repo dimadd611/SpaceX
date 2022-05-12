@@ -14,22 +14,11 @@ import Foundation
 
 
 struct Launch: Codable{
-    let links: Links
-//       let staticFireDateUTC: String
-//       let staticFireDateUnix: Int
-//       let tdb, net: Bool
-//       let window: Int
+       let links: Links
        let rocket: String
-//       let success: Bool
        let details: String?
-//       let launchpad: String
-//       let autoUpdate: Bool
-//       let flightNumber: Int
        let name: String
        let dateUnix: Int
-//       let dateLocal: Date
-//       let datePrecision: String
-//       let upcoming: Bool
     
     enum CodingKeys: String, CodingKey {
             case links = "links"
@@ -50,6 +39,7 @@ struct Links: Codable {
     let flickr: Flickr
     let youtubeID: String?
     let wiki: String?
+    
     enum CodingKeys: String, CodingKey{
         case patch = "patch"
         case flickr = "flickr"

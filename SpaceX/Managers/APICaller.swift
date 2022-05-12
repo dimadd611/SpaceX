@@ -31,14 +31,13 @@ class APICaller {
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else {
-                return completion(.failure(error as! Error))
+                return
             }
             do{
                 let results = try JSONDecoder().decode([Launch].self, from: data)
-//                print(results)
                 completion(.success(results))
             }catch{
-                print(error)//.localizedDescription)
+                print(error)
                 completion(.failure(APIError.failedTogetData))
             }
         }

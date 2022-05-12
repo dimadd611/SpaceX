@@ -30,7 +30,6 @@ class MainTVCell: UITableViewCell {
     
     public lazy var mainImage: UIImageView = {
         let iv = UIImageView()
-//        iv.contentMode = .scaleToFill
         iv.layer.cornerRadius = 10
         iv.layer.borderWidth = 1
         iv.layer.borderColor = CGColor(gray: 1, alpha: 1)
@@ -70,7 +69,6 @@ class MainTVCell: UITableViewCell {
             $0.leading.equalToSuperview().offset(5)
             $0.trailing.equalToSuperview().offset(-5)
             $0.centerX.equalToSuperview()
-//            $0.size.equalTo(100)
         }
     }
     

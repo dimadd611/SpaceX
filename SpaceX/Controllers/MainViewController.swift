@@ -22,9 +22,7 @@ class MainViewController: UIViewController {
         return tb
     }()
 
-    override func viewDidAppear(_ animated: Bool) {
-        checkConnection()
-    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +31,8 @@ class MainViewController: UIViewController {
         configureLayout()
         getLaunch()
         configureNavBar()
-        refresh()
+        pullToRefresh()
         view.backgroundColor = UIColor(red: 33/255, green: 35/255, blue: 50/255, alpha: 1)
-        
-        
-//        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-//            self.showAlert()
-//        }
     }
     
     func configureNavBar(){
@@ -50,10 +43,9 @@ class MainViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [
             .foregroundColor: UIColor.black
         ]
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.fill"), style: .plain, target: self, action: #selector(goDescrip))
     }
     
-    var connection: Bool = false
+    
     
     func configureLayout(){
         view.addSubviews(mainTableView)
@@ -65,32 +57,27 @@ class MainViewController: UIViewController {
     }
     
     
-    func refresh(){
+    func pullToRefresh(){
         let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(reload), for: .valueChanged)
+        refresh.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
         self.mainTableView.refreshControl = refresh
     }
     
-    @objc func reload(){
+    @objc func refreshTableView(){
         APICaller.shared.getLaunchInfo{ [weak self] result in
             switch result{
             case.success(let launces):
-                
                 self?.launches = launces.reversed()
                 DispatchQueue.main.async {
                     self?.mainTableView.reloadData()
                     self?.mainTableView.refreshControl?.endRefreshing()
-
                 }
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.launches = [Launch]()
-                self?.connection = true
                 DispatchQueue.main.async {
                     self?.mainTableView.refreshControl?.endRefreshing()
                 }
-                
-                
             }
         }
     }
@@ -115,7 +102,6 @@ class MainViewController: UIViewController {
     
  
     private func getLaunch(){
-        self.connection = false
         APICaller.shared.getLaunchInfo{ [weak self] result in
             switch result{
             case.success(let launces):
@@ -126,8 +112,6 @@ class MainViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.connection = true
-                
             }
         }
     }
@@ -135,15 +119,11 @@ class MainViewController: UIViewController {
     
     func showAlert(){
         let alert = UIAlertController(title: "Error", message: "Something went wrong", preferredStyle: .alert)
-        
-
-        
-        let okAction = UIAlertAction(title: "Ok", style: .cancel) {[weak self] _ in
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) {_ in
             alert.dismiss(animated: true)
         }
         
         alert.addAction(okAction)
-        
         present(alert, animated: true)
     }
     

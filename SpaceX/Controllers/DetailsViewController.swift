@@ -12,10 +12,6 @@ import RxGesture
 
 
 class DetailsViewController: UIViewController {
-    
-//    private var rockets: [Rocket] = [Rocket]()
-//    private var rocketName: String = ""
-//    private var payloadMass: String = ""
 
     
     private lazy var titleLbael: UILabel = {
@@ -61,16 +57,41 @@ class DetailsViewController: UIViewController {
         return label
     }()
     
-   
+    var name: String
+    var vidID: String
+    var detail: String
+    var date: Int
+    var rocket: String
+    var wiki: String
 
+    init(name: String, videoID: String, date: Int, details: String, rocketID: String, wikipedia: String){
+        self.name = name
+        self.vidID = videoID
+        self.date = date
+        self.detail = details
+        self.rocket = rocketID
+        self.wiki = wikipedia
+
+        super.init(nibName: nil, bundle: nil)
+        
+    }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getRocketDetails(rocketID: rocket)
+        configureLayout()
+        
+    }
+    
+    func configureLayout(){
         view.backgroundColor = UIColor(red: 33/255, green: 35/255, blue: 50/255, alpha: 1)
+        
         view.addSubviews(webView, titleLbael, wikiBtn, rocketName, payloadMass, dateLabel)
         configure()
 
@@ -106,34 +127,9 @@ class DetailsViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-10)
             $0.height.equalTo(350)
         }
-        
     }
     
-    var name: String
-    var vidID: String
-    var detail: String
-    var date: Int
-    var rocket: String
-    var wiki: String
-    
-    init(name: String, videoID: String, date: Int, details: String, rocketID: String, wikipedia: String){
-        self.name = name
-        self.vidID = videoID
-        self.date = date
-        self.detail = details
-        self.rocket = rocketID
-        self.wiki = wikipedia
-        
-        
-        
-        super.init(nibName: nil, bundle: nil)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+
     
     func configure(){
         titleLbael.text = detail
@@ -178,7 +174,7 @@ class DetailsViewController: UIViewController {
                 print(rocket)
                 completion(rocket)
             }catch{
-                print(error)//.localizedDescription)
+                print(error)
             }
         }
         task.resume()
